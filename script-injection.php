@@ -85,7 +85,7 @@ function inject_js() {
     function airCookierecordConsent() {
       <?php // Set visitor identification if not set already. ?>
       if ( null === cc.get( 'data' ) || ! ( "visitorid" in cc.get( 'data' ) ) ) {
-        cc.set( 'data', {value: {visitorid: '<?php echo wp_generate_uuid4(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>'}, mode: 'update'} );
+        cc.set( 'data', {value: {visitorid: crypto.randomUUID()}, mode: 'update'} );
       }
 
       <?php // REST API request to record user consent. ?>
